@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orders List</title>
+</head>
+<body>
+<h1>Orders List</h1>
+<form th:action="@{/activation}" th:object="${orderDetail1}" th:method="GET">
+<table border="1" >
+    <thead>
+    <tr>
+        <th>Order ID</th>
+        <th>Cash on Delivery</th>
+        <th>Delivery Charge</th>
+        <th>Order Status</th>
+        <th>Message</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="orderDetail1 : ${order}">
+        <td th:value="${orderDetail1.id}" ></td>
+        <td th:value="${orderDetail1.cashOnDelivery}" ></td>
+        <td th:value="${orderDetail1.deliveryCharge}"></td>
+        <td th:value="${orderDetail1.orderStatus}"></td>
+        <td th:value="${orderDetail1.message}"></td>
+    </tr>
+
+    </tbody>
+</table>
+</form>
+
+<br>
+
+        <button href="@{/activtion}" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px;" >
+            activation Business
+        </button>
+
+</body>
+</html>

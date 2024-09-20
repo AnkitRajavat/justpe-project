@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Business Registration</title>
+</head>
+<body>
+<h1>Business Activation form</h1>
+
+<form action="#" th:action="@{/submitRegistration}" th:object="${registrationForm}" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber" th:field="*{phoneNumber}" required/>
+    </div>
+
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" required/>
+    </div>
+
+    <div>
+        <label for="businessType">Business Type:</label>
+        <select id="businessType" th:field="*{businessType}">
+            <option value="Proprietorship">Proprietorship Business</option>
+            <option value="Individual">Individual Business</option>
+            <option value="Partnership">Partnership Business</option>
+            <option value="LLP/PvtLtd">LLP/Pvt Ltd Business</option>
+        </select>
+    </div>
+
+    <h2>Documents</h2>
+    <div>
+        <label for="tradeLicense">Trade License / GST Certificate (Any One):</label>
+        <input type="file" id="tradeLicense" name="tradeLicense" required/>
+        <span>With Stamp And Signature</span>
+    </div>
+
+    <div>
+        <label for="aadhaarCard">Aadhaar Card:</label>
+        <input type="file" id="aadhaarCard" name="aadhaarCard" required/>
+        <span>Self Signature</span>
+    </div>
+
+    <div>
+        <label for="partnershipDeed">Partnership Deed:</label>
+        <input type="file" id="partnershipDeed" name="partnershipDeed"/>
+        <span>With Stamp And Signature</span>
+    </div>
+
+    <div>
+        <label for="coi">COI (Certificate of Incorporation):</label>
+        <input type="file" id="coi" name="coi"/>
+        <span>With Stamp And Signature</span>
+    </div>
+
+    <div>
+        <label for="shopPhoto">Shop Photo / Office Photo:</label>
+        <input type="file" id="shopPhoto" name="shopPhoto"/>
+    </div>
+
+    <div>
+        <label for="panCard">PAN Card:</label>
+        <input type="file" id="panCard" name="panCard" required/>
+        <span>Self Signature</span>
+    </div>
+
+    <div>
+        <label for="bankDocument">Bank – Cancel Check / Passbook / Verified Letter / E-Statement (Any One):</label>
+        <input type="file" id="bankDocument" name="bankDocument" required/>
+    </div>
+
+    <div>
+        <label for="nonSignBoard">Non-SignBoard Declaration Letter:</label>
+        <input type="file" id="nonSignBoard" name="nonSignBoard"/>
+        <span>In Your Box</span>
+    </div>
+
+    <div>
+        <label for="partnerAadhaar">Two Partner Aadhaar:</label>
+        <input type="file" id="partnerAadhaar" name="partnerAadhaar"/>
+        <span>Self Signature</span>
+    </div>
+
+    <div>
+        <label for="partnerPanCard">Two Partner PAN Card:</label>
+        <input type="file" id="partnerPanCard" name="partnerPanCard"/>
+        <span>Self Signature</span>
+    </div>
+
+    <div>
+        <label for="gstDeclaration">GST / Non-GST Declaration Letter:</label>
+        <input type="file" id="gstDeclaration" name="gstDeclaration"/>
+    </div>
+
+    <div>
+        <label for="authorizedSignatory">Declaration of Authorized Signatory:</label>
+        <input type="file" id="authorizedSignatory" name="authorizedSignatory"/>
+        <span>Attach In Box</span>
+    </div>
+
+    <button type="submit">Submit Registration</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Registered user List</h1>
+    <a href="/add" class="btn btn-primary mb-3">Add bussiness</a>
+<table border="2" >
+    <thead>
+    <tr >
+        <th>ID</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Business Type</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Alternate Phone Number</th>
+        <th>Email</th>
+        <th>Delivery Address</th>
+        <th>Pin Number</th>
+        <th>City</th>
+        <th>State</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bussinessDetails : ${listUser}">
+        <td th:text="${bussinessDetails.id}"></td>
+        <td th:text="${bussinessDetails.product}"></td>
+        <td th:text="${bussinessDetails.price}"></td>
+        <td th:text="${bussinessDetails.bussiness_type}"></td>
+        <td th:text="${bussinessDetails.name}"></td>
+        <td th:text="${bussinessDetails.phone_number}"></td>
+        <td th:text="${bussinessDetails.alternet_phonenumber}"></td>
+        <td th:text="${bussinessDetails.email}"></td>
+        <td th:text="${bussinessDetails.delivery_Address}"></td>
+        <td th:text="${bussinessDetails.pin_number}"></td>
+        <td th:text="${bussinessDetails.city}"></td>
+        <td th:text="${bussinessDetails.state}"></td>
+    </tr>
+    </tbody>
+</table></div>
+</body>
+</html>

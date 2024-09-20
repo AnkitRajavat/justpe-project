@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add bussiness</title>
+
+</head>
+<body>
+<h1>Add New bussiness</h1>
+
+<form th:action="@{/orderstatus}" th:object="${form}" th:method="post">
+    <table>
+        <tr>
+            <td><label for="bussinessType">Product</label></td>
+            <td>
+
+                <select id="bussinessType" name="product" required>
+                    <option value="">-- Select Product --</option>
+                    <option th:each="bussinessType : ${product}"
+                            th:value="${bussinessType.name}"
+                            th:text="${bussinessType.name}">
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="price">Price</label></td>
+            <td> <input type="number" id="price" name="price"></td>
+        </tr>
+        <tr>
+        <td><label for="businessType">Business Type</label></td>
+        <td>
+            <select id="businessType" name="product" required>
+            <option value="">-- Select bussiness Type --</option>
+            <option th:each="businessType : ${product}"
+                    th:text="${businessType.bussiness_type}"
+                    th:value="${businessType.bussiness_type}">
+            </option>
+        </select>
+        </td>
+        </tr>
+        <tr>
+            <td><label for="name">Name</label></td>
+            <td><input type="text" id="name" th:field="*{name}" /></td>
+        </tr>
+        <tr>
+            <td><label for="phone_number">Phone Number</label></td>
+            <td><input type="number" id="phone_number" th:field="*{phone_number}" maxlength="10" pattern="\d{10}"
+                       title="Phone number must be exactly 10 digits" required/></td>
+        </tr>
+        <tr>
+            <td><label for="alternet_phonenumber">Alternate Phone Number</label></td>
+            <td><input type="number" id="alternet_phonenumber" th:field="*{alternet_phonenumber}" maxlength="10" pattern="\d{10}"
+                       title="Phone number must be exactly 10 digits" required/></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email</label></td>
+            <td><input type="email" id="email" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td><label for="delivery_Address">Delivery Address</label></td>
+            <td><input type="text" id="delivery_Address" th:field="*{delivery_Address}" /></td>
+        </tr>
+        <tr>
+            <td><label for="pin_number">Pin Number</label></td>
+            <td><input type="number" id="pin_number" th:field="*{pin_number}" /></td>
+        </tr>
+        <tr>
+            <td><label for="city">City</label></td>
+            <td><input type="text" id="city" th:field="*{city}" /></td>
+        </tr>
+        <tr>
+            <td><label for="state">State</label></td>
+            <td><input type="text" id="state" th:field="*{state}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+
+                <button href="@{/oderstatus}" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px;" >
+                    registered Business
+                </button>
+
+
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<h1 th:text="${message}">message</h1>
+</body>
+</html>
