@@ -19,5 +19,6 @@ public class BussinessType {
     @Column(name="price",nullable=true)
     private long price;
     @NonNull
-    private String bussiness_type;
+    @Column(name="bussinessType")
+    private String bussinessType;
 }

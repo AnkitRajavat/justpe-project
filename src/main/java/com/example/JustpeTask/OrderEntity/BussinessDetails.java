@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.processing.Pattern;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="bussiness_Details")
@@ -12,6 +13,7 @@ import org.hibernate.annotations.processing.Pattern;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Component
 public class BussinessDetails {
 
     @Id
@@ -21,11 +23,12 @@ public class BussinessDetails {
     @NonNull
     private long price;
     @NonNull
-    @Column(nullable = false)
-    private String bussiness_type;
+    @Column(name="bussinessType", nullable = false)
+    private String bussinessType;
+
     private String name;
     @Size(min = 10, max = 10, message = "Phone number must be exactly 10 digits")
-    private String phone_number;
+    private String phoneNumber;
     @Size(min = 10, max = 10, message = "Phone number must be exactly 10 digits")
     private String Alternet_phonenumber;
     private String email;

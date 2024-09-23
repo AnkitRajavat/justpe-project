@@ -14,16 +14,21 @@
         <th>Delivery Charge</th>
         <th>Order Status</th>
         <th>Message</th>
-
+<th>activation link</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td ><p>1</p></td>
+        <td id="email" name="id" th:value="${bussinessDetails.id}" th:text="${bussinessDetails.id}">
+            </td>
         <td><p>Yes</p></td>
         <td > <p>0</p></td>
         <td > <p>confirm</p></td>
         <td ><p>order successfully ordered<p> </td>
+        <td>
+            <!-- Create an activation link -->
+            <a th:href="@{'/activition/' + ${bussinessDetails.id}}">Activate</a>
+        </td>
     </tr>
 
     </tbody></table>

@@ -21,4 +21,16 @@ public class ServiceImp implements Serviceoder {
     public List<BussinessDetails> getAllDetails() {
         return repo.findAll();
     }
+
+    @Override
+    public BussinessDetails findLastUser() {
+        return repo.findLastUser();
+    }
+
+    @Override
+    public BussinessDetails getdatabyid(long id) {
+        return repo.getById(id);
+    }
+
 }
+

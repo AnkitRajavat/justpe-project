@@ -29,11 +29,11 @@
         <tr>
         <td><label for="Type">Business Type</label></td>
         <td>
-            <select id="Type" name="product" required>
+            <select id="Type" name="product"  th:field="*{bussinessType}" required>
             <option value="">-- Select bussiness Type --</option>
                 <option th:each="businessType: ${product}"
-                        th:value="${businessType.bussiness_type}"
-                        th:text="${businessType.bussiness_type}">
+                        th:value="${businessType.bussinessType}"
+                        th:text="${businessType.bussinessType}">
                 </option>
         </select>
         </td>
@@ -44,7 +44,7 @@
         </tr>
         <tr>
             <td><label for="phone_number">Phone Number</label></td>
-            <td><input type="number" id="phone_number" th:field="*{phone_number}" maxlength="10" pattern="\d{10}"
+            <td><input type="number" id="phone_number" th:field="*{phoneNumber}" maxlength="10" pattern="\d{10}"
                        title="Phone number must be exactly 10 digits" required/></td>
         </tr>
         <tr>

@@ -14,13 +14,17 @@ import java.util.List;
 @Controller
 public class PlaceorderController {
 
-
+    @Autowired
+    public BussinessDetails bussinessDetails;
 
     @Autowired
     public ServiceImp serviceImp;
 
     @GetMapping("/orderstatus")
     public String showOrderstatus(Model model){
+        BussinessDetails bussinessDetails=serviceImp.findLastUser();
+        model.addAttribute("bussinessDetails",bussinessDetails);
+
          List<BussinessDetails> order=serviceImp.getAllDetails();
         model.addAttribute("orders",order);
         return "Activation_form";

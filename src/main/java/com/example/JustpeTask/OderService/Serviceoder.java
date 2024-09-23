@@ -7,4 +7,6 @@ import java.util.List;
 public interface Serviceoder {
     public void createform(BussinessDetails bussinessDetails);
     public List<BussinessDetails> getAllDetails();
+    public BussinessDetails findLastUser();
+    public BussinessDetails getdatabyid(long id);
 }

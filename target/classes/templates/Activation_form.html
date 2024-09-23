@@ -2,112 +2,121 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Business Registration</title>
+    <style>
+        .form-section {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <h1>Business Activation form</h1>
 
-<form  th:action="@{/submit}" th:object="${active}" method="post" >
+<form  th:action="@{/submit}" th:object="${active}" method="post" enctype="multipart/form-data">
     <div>
         <label for="phoneNumber">Phone Number:></label>
-        <input type="number" id="phoneNumber" th:field="*{phone_number}" required/>
+        <input type="number" id="phoneNumber" name="phoneNumber" th:value="${bussinessDetails.phoneNumber}" readonly />
     </div>
-
+<br>
     <div>
         <label for="email">Email:></label>
-        <input type="email" id="email" th:field="*{email}" required/>
+        <input type="email" id="email" name="email" th:value="${bussinessDetails.email}" readonly />
     </div>
-
+    <br>
     <label >Business Type</label>
-    <select id="businessType" onchange="showForm()">
-        <option value="">Bussiness Type</option>
+    <select id="businessType" name="bussinessType" th:field="*{bussinessType}"onchange="showForm()">
+
+        <option value="">Select Business Type</option>
         <option value="proprietorship">Proprietorship Business</option>
         <option value="individual">Individual Business</option>
         <option value="partnership">Partnership Business</option>
         <option value="llp_pvt_ltd">LLP/Pvt Ltd Business</option>
     </select>
-
-    <!-- Proprietorship Business Form -->
+    <br>
     <div id="proprietorshipForm" class="form-section">
         <h3>Proprietorship Business Form</h3>
         <label>Trade license / GST Certificate:</label>
-        <input type="file" /><br>
+        <input type="file" name="tradeLicense" multiple/><br>
         <label>Aadhaar Card (self-signed):</label>
-        <input type="file" /><br>
+        <input type="file" name="aadhaar" multiple/><br>
         <label>Shop Photo / Office Photo:</label>
-        <input type="file" /><br>
+        <input type="file" name="shopPhoto" multiple/><br>
         <label>Bank - Cancelled Check / Passbook / Verified Letter / E-Statement:</label>
-        <input type="file" /><br>
+        <input type="file" name="bankDocument" multiple/><br>
         <label>Non-Signboard Declaration Letter:</label>
-        <input type="file" /><br>
+        <input type="file" name="declarationLetter" multiple/><br>
     </div>
-
+    <br>
     <!-- Individual Business Form -->
     <div id="individualForm" class="form-section">
         <h3>Individual Business Form</h3>
         <label>Aadhaar Card (self-signed):</label>
-        <input type="file" /><br>
+        <input type="file" name="aadhaar" multiple/><br>
         <label>Pan Card (self-signed):</label>
-        <input type="file" /><br>
+        <input type="file" name="panCard" multiple/><br>
         <label>Bank - Cancelled Check / Passbook / Verified Letter / E-Statement:</label>
-        <input type="file" /><br>
+        <input type="file" name="bankDocument" multiple/><br>
         <label>Non-Signboard Declaration Letter:</label>
-        <input type="file" /><br>
+        <input type="file" name="declarationLetter" multiple/><br>
     </div>
-
+    <br>
     <!-- Partnership Business Form -->
     <div id="partnershipForm" class="form-section">
         <h3>Partnership Business Form</h3>
         <label>Partnership Deed (stamped & signed):</label>
-        <input type="file" /><br>
+        <input type="file" name="partnershipDeed" multiple/><br>
         <label>Two Partner Aadhaar (self-signed):</label>
-        <input type="file" /><br>
+        <input type="file" name="partnerAadhaar" multiple/><br>
         <label>Two Partner Pan Card (self-signed):</label>
-        <input type="file" /><br>
+        <input type="file" name="partnerPanCard" multiple/><br>
         <label>Bank - Cancelled Check / Passbook / Verified Letter / E-Statement:</label>
-        <input type="file" /><br>
+        <input type="file" name="bankDocument" multiple/><br>
     </div>
-
+    <br>
     <!-- LLP/Pvt Ltd Business Form -->
     <div id="llp_pvt_ltdForm" class="form-section">
         <h3>LLP/Pvt Ltd Business Form</h3>
         <label>COI (stamped & signed):</label>
-        <input type="file" /><br>
+        <input type="file" name="coi" multiple/><br>
         <label>Declaration of Authorised Signatory:</label>
-        <input type="file" /><br>
+        <input type="file" name="authSign" multiple/><br>
         <label>Bank - Cancelled Check / Passbook / Verified Letter / E-Statement:</label>
-        <input type="file" /><br>
+        <input type="file" name="bankDocument" multiple/><br>
         <label>Shop Photo / Office Photo:</label>
-        <input type="file" /><br>
+        <input type="file" name="shopPhoto" multiple /><br>
     </div>
+    <br>
 
-    <script>
-        function showForm() {
-            // Hide all form sections initially
-            var forms = document.querySelectorAll('.form-section');
-            forms.forEach(function(form) {
-                form.style.display = 'none';
-            });
 
-            // Get the selected business type
-            var businessType = document.getElementById("businessType").value;
-
-            // Show the corresponding form based on the selection
-            if (businessType === "proprietorship") {
-                document.getElementById("proprietorshipForm").style.display = "block";
-            } else if (businessType === "individual") {
-                document.getElementById("individualForm").style.display = "block";
-            } else if (businessType === "partnership") {
-                document.getElementById("partnershipForm").style.display = "block";
-            } else if (businessType === "llp_pvt_ltd") {
-                document.getElementById("llp_pvt_ltdForm").style.display = "block";
-            }
-        }
-    </script>
-<br>
 
     <button href="@{/submit}" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px;" >
         registered Business
     </button>
 </form>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    showForm(); // Call showForm() to handle pre-selected option
+});
+    function showForm() {
+        // Hide all form sections initially
+        var forms = document.querySelectorAll('.form-section');
+        forms.forEach(function(form) {
+            form.style.display = 'none';
+        });
+
+        // Get the selected business type
+        var businessType = document.getElementById("businessType").value;
+
+        // Show the corresponding form based on the selection
+        if (businessType === "proprietorship") {
+            document.getElementById("proprietorshipForm").style.display = "block";
+        } else if (businessType === "individual") {
+            document.getElementById("individualForm").style.display = "block";
+        } else if (businessType === "partnership") {
+            document.getElementById("partnershipForm").style.display = "block";
+        } else if (businessType === "llp_pvt_ltd") {
+            document.getElementById("llp_pvt_ltdForm").style.display = "block";
+        }
+    }
+</script>
 </body>
 </html>
