@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Orders List</h1>
-<form th:action="@{/activation}" th:object="${orderDetail1}" th:method="GET">
+
 <table border="1" >
     <thead>
     <tr>
@@ -18,23 +18,25 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="orderDetail1 : ${order}">
-        <td th:value="${orderDetail1.id}" ></td>
-        <td th:value="${orderDetail1.cashOnDelivery}" ></td>
-        <td th:value="${orderDetail1.deliveryCharge}"></td>
-        <td th:value="${orderDetail1.orderStatus}"></td>
-        <td th:value="${orderDetail1.message}"></td>
+    <tr>
+        <td ><p>1</p></td>
+        <td><p>Yes</p></td>
+        <td > <p>0</p></td>
+        <td > <p>confirm</p></td>
+        <td ><p>order successfully ordered<p> </td>
     </tr>
 
-    </tbody>
-</table>
+    </tbody></table>
+    <br><form th:action="activition" th:object="${orderDetail1}" >
+    <button href="@{/activition}" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px;" >
+        activation Business
+    </button>
+
+
 </form>
 
-<br>
 
-        <button href="@{/activtion}" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px;" >
-            activation Business
-        </button>
+
 
 </body>
 </html>

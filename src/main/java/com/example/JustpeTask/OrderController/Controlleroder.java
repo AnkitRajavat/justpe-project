@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.AttributedString;
 import java.util.List;
 
 @Controller
@@ -20,6 +19,8 @@ public class Controlleroder {
 
 @Autowired
 private BussinessTypeservice bussinessTypeservice;
+
+
 
  @GetMapping("/form")
     public String getalldetails(Model model){
@@ -32,6 +33,7 @@ private BussinessTypeservice bussinessTypeservice;
     public String createform(Model model){
 
          List< BussinessType> bussinessType=bussinessTypeservice.findproduct();
+
          model.addAttribute("product",bussinessType);
      model.addAttribute("form",new BussinessDetails());
       return "addBussiness";
@@ -47,3 +49,4 @@ public String savebussiness(@ModelAttribute BussinessDetails bussinessDetails,Mo
 return "Orderstatus";
 }
 }
+

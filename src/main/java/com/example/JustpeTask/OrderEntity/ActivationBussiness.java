@@ -19,5 +19,12 @@ public class ActivationBussiness {
     private long phone_number;
     private String email;
     private String Bussiness_type;
+    private String aadhaarCard;
+    private String panCard;
+    private String declarationLetter;
+    private String bankDocument;
+    private String shopPhoto;
+    private String nonSignBoardDeclarationLetter;
+    private String gstDeclarationLetter;
 
 }

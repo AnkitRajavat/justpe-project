@@ -20,4 +20,9 @@ public class BussinessTypeservice {
     public Optional<BussinessType> getbyid(long id){
         return productRepo.findById(id);
     }
+    public Optional<BussinessType> getProductByName(String name) {
+        return productRepo.findByName(name);
+    }
+
+
 }

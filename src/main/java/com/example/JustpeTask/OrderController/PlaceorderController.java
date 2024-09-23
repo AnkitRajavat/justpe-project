@@ -1,6 +1,8 @@
 package com.example.JustpeTask.OrderController;
 
 import com.example.JustpeTask.OderService.PlaceorderService;
+import com.example.JustpeTask.OderService.ServiceImp;
+import com.example.JustpeTask.OrderEntity.BussinessDetails;
 import com.example.JustpeTask.OrderEntity.OrderDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,13 +17,13 @@ public class PlaceorderController {
 
 
     @Autowired
-    public PlaceorderService placeorderService;
+    public ServiceImp serviceImp;
 
     @GetMapping("/orderstatus")
     public String showOrderstatus(Model model){
-         List<OrderDetail> order=placeorderService.getallorder();
+         List<BussinessDetails> order=serviceImp.getAllDetails();
         model.addAttribute("orders",order);
-        return "orderDetails";
+        return "Activation_form";
     }
 
 }
